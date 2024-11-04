@@ -107,8 +107,6 @@ function next1() {
 if(count > 2){
     document.getElementById("salut21").style.display="none"
     document.getElementById("salut22").style.display="none"
-
-
     document.getElementById("salut3").style.display="grid"
 }
 
