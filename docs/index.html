@@ -12,11 +12,13 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Aldrich&family=Jaini&family=Kalam:wght@300;400;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <script src="https://kit.fontawesome.com/e9ee48a8e3.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="flex flex-col items-center mt-20 bg-slate-300">
+<body class="flex flex-col items-center mt-20  "
+    style="background-image: url(../images/gary-lopater-dOOGrK3zcUc-unsplash.jpg); background-size: cover; background-repeat: no-repeat; background-position: center; height: 100vh;">
     <ol class="flex items-center w-1/2">
         <li id="li0"
             class="flex w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block dark:after:border-gray-700">
@@ -77,166 +79,197 @@
 
     <!-- commencer la reservation  -->
 
-    <div id="salut0" class="mt-20 w-[40vw] p-5 bg-slate-50 rounded-3xl text-center">
-        <h1 class="text-4xl text-slate-600 font-kalam">
-            Commencer la reservation
-        </h1>
-        <p class="pt-10 text-2xl font-LobsterTwo">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam quasi,
-            aliquam eum est blanditiis officia? Voluptatem, autem delectus sint
-            maxime ipsam aspernatur, nihil rerum possimus asperiores culpa in
-            voluptate perferendis
-        </p>
+    <div id="salut0" class="page mt-20 w-[40vw] p-5 bg-slate-50 bg-opacity-50 rounded-3xl text-center">
+        <h1 class="text-4xl text-slate-600 font-kalam">Commencer la reservation</h1>
+        <p class="pt-10 text-2xl font-sans">Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Esse, unde.</p>
+        <button type="button" onclick="nextStep(1)"
+            class="bg-slate-500 hover:bg-slate-900 text-white px-8 py-2 mt-5 rounded-xl">Next</button>
     </div>
 
-    <!-- la gare et la date -->
-
-    <div id="salut1" class="mt-20 w-[40vw] p-5 bg-slate-50 rounded-3xl text-center flex flex-col items-center">
+    <!-- Station and Date Selection -->
+    <div id="salut1"
+        class="page mt-20 w-[40vw] p-[20px] bg-slate-50 bg-opacity-50 rounded-3xl text-center flex flex-col items-center"
+        hidden>
         <h1 class="text-4xl text-slate-600 font-mono mb-10">Commencer</h1>
-        <select name="" id="" class="w-80 bg-slate-500 my-2 py-2 rounded-xl px-2 text-center">
-            La gare de depart
-            <option value="">La gare de depart</option>
-            <option value="Paris">Paris</option>
-            <option value="London">London</option>
-            <option value="Madrid">Madrid</option>
-        </select>
-        <select name="" id="arriver" class="w-80 bg-slate-500 my-2 py-2 rounded-xl px-2 text-center">
-            <option value="walou">La gare d'arriver</option>
-            <option value="Paris">Paris</option>
-            <option value="London">London</option>
-            <option value="Madrid">Madrid</option>
-        </select>
-        <input class="w-80 bg-slate-500 my-2 py-2 rounded-xl px-2 text-center" type="date" />
+        <form class="flex flex-col items-center">
+            <select class="w-80 bg-slate-500 my-2 py-2 rounded-xl px-2 text-center" required>
+                <option value="">La gare de depart</option>
+                <option value="Paris">Paris</option>
+                <option value="London">London</option>
+                <option value="Madrid">Madrid</option>
+            </select>
+            <select id="arriver" class="w-80 bg-slate-500 my-2 py-2 rounded-xl px-2 text-center" required>
+                <option value="">La gare d'arriver</option>
+                <option value="Paris">Paris</option>
+                <option value="London">London</option>
+                <option value="Madrid">Madrid</option>
+            </select>
+            <input class="w-80 bg-slate-500 my-2 py-2 rounded-xl px-2 text-center" type="date" />
+            <div class="flex justify-between w-80 mt-5">
+                <button type="button" onclick="previousStep(1)"
+                    class="bg-slate-500 hover:bg-slate-900 text-white px-4 py-2 rounded-xl">Previous</button>
+                <button type="button" onclick="nextStep(2)"
+                    class="bg-slate-500 hover:bg-slate-900 text-white px-8 py-2 rounded-xl">Next</button>
+            </div>
+
+        </form>
     </div>
 
     <!-- resultat de recherche -->
-
-    <div id="salut2" class="mt-20 w-[40vw] flex flex-col gap-6 justify-center">
-        <button class="focus:border-4 focus:border-gray-700 w-full">
-            <div class="flex justify-between bg-slate-400 py-3 px-3">
-                <span>Paris</span><span>2:20</span><span><i
-                        class="fa-solid fa-plane-circle-check"></i></span><span>7:20</span>
+    <div hidden id="salut20" class="page">
+        <div
+            class=" bg-slate-50 bg-opacity-50 p-[20px] rounded-[20px] mt-20 w-[40vw] flex flex-col gap-6 justify-center">
+            <button class="focus:border-4 focus:border-gray-700 focus:rounded-xl  w-full">
+                <div class="flex justify-between bg-slate-400 rounded-lg py-3 px-3">
+                    <span>Paris</span><span>2:20</span><span><i
+                            class="fa-solid fa-plane-circle-check"></i></span><span>7:20</span>
+                </div>
+            </button>
+            <button class="focus:border-4 focus:border-gray-700 focus:rounded-xl  w-full">
+                <div class="flex justify-between bg-slate-400 rounded-lg py-3 px-3">
+                    <span>Paris</span><span>14:20</span><span><i
+                            class="fa-solid fa-plane-circle-check"></i></span><span>5:20</span>
+                </div>
+            </button>
+            <button class="focus:border-4 focus:border-gray-700 focus:rounded-xl  w-full">
+                <div class="flex justify-between bg-slate-400 rounded-lg py-3 px-3">
+                    <span>Paris</span><span>3:20</span><span><i
+                            class="fa-solid fa-plane-circle-check"></i></span><span>9:00</span>
+                </div>
+            </button>
+            <button class="focus:border-4 focus:border-gray-700 focus:rounded-xl  w-full">
+                <div class="flex justify-between bg-slate-400 rounded-lg py-3 px-3">
+                    <span>Paris</span><span>9:20</span><span><i
+                            class="fa-solid fa-plane-circle-check"></i></span><span>20:20</span>
+                </div>
+            </button>
+            <div class="flex justify-between">
+                <button type="button" onclick="previousStep(2)"
+                    class="bg-slate-500 hover:bg-slate-900 text-white px-4 py-2 rounded-xl">Previous</button>
+                <button type="button" onclick="nextStep(3)"
+                    class="bg-slate-500 hover:bg-slate-900 text-white px-8 py-2 rounded-xl">Next</button>
             </div>
-        </button>
-        <button class="focus:border-4 focus:border-gray-700 w-full">
-            <div class="flex justify-between bg-slate-400 py-3 px-3">
-                <span>Paris</span><span>14:20</span><span><i
-                        class="fa-solid fa-plane-circle-check"></i></span><span>5:20</span>
-            </div>
-        </button>
-        <button class="focus:border-4 focus:border-gray-700 w-full">
-            <div class="flex justify-between bg-slate-400 py-3 px-3">
-                <span>Paris</span><span>3:20</span><span><i
-                        class="fa-solid fa-plane-circle-check"></i></span><span>9:00</span>
-            </div>
-        </button>
-        <button class="focus:border-4 focus:border-gray-700 w-full">
-            <div class="flex justify-between bg-slate-400 py-3 px-3">
-                <span>Paris</span><span>9:20</span><span><i
-                        class="fa-solid fa-plane-circle-check"></i></span><span>20:20</span>
-            </div>
-        </button>
+        </div>
     </div>
-    <div id="salut21" class="mt-20 w-[40vw] flex flex-col gap-6 justify-center">
-        <button class="focus:border-4 focus:border-gray-700 w-full">
-            <div class="flex justify-between bg-slate-400 py-3 px-3">
-                <span>London</span><span>7:20</span><span><i
-                        class="fa-solid fa-plane-circle-check"></i></span><span>9:00</span>
+    <div hidden id="salut21" class="page">
+        <div
+            class="bg-slate-50 bg-opacity-50 p-[20px] rounded-[20px] mt-20 w-[40vw] flex flex-col gap-6 justify-center">
+            <button class="focus:border-4 focus:border-gray-700 focus:rounded-xl  w-full">
+                <div class="flex justify-between bg-slate-400 rounded-lg py-3 px-3">
+                    <span>London</span><span>7:20</span><span><i
+                            class="fa-solid fa-plane-circle-check"></i></span><span>9:00</span>
+                </div>
+            </button>
+            <button class="focus:border-4 focus:border-gray-700 focus:rounded-xl  w-full">
+                <div class="flex justify-between bg-slate-400 rounded-lg py-3 px-3">
+                    <span>London</span><span>15:20</span><span><i
+                            class="fa-solid fa-plane-circle-check"></i></span><span>14:20</span>
+                </div>
+            </button>
+            <button class="focus:border-4 focus:border-gray-700 focus:rounded-xl  w-full">
+                <div class="flex justify-between bg-slate-400 rounded-lg py-3 px-3">
+                    <span>London</span><span>20:20</span><span><i
+                            class="fa-solid fa-plane-circle-check"></i></span><span>9:00</span>
+                </div>
+            </button>
+            <button class="focus:border-4 focus:border-gray-700 focus:rounded-xl  w-full">
+                <div class="flex justify-between bg-slate-400 rounded-lg py-3 px-3">
+                    <span>London</span><span>1:20</span><span><i
+                            class="fa-solid fa-plane-circle-check"></i></span><span>2:20</span>
+                </div>
+            </button>
+            <div class="flex justify-between">
+                <button type="button" onclick="previousStep(2)"
+                    class="bg-slate-500 hover:bg-slate-900 text-white px-4 py-2 rounded-xl">Previous</button>
+                <button type="button" onclick="nextStep(3)"
+                    class="bg-slate-500 hover:bg-slate-900 text-white px-8 py-2 rounded-xl">Next</button>
             </div>
-        </button>
-        <button class="focus:border-4 focus:border-gray-700 w-full">
-            <div class="flex justify-between bg-slate-400 py-3 px-3">
-                <span>London</span><span>15:20</span><span><i
-                        class="fa-solid fa-plane-circle-check"></i></span><span>14:20</span>
-            </div>
-        </button>
-        <button class="focus:border-4 focus:border-gray-700 w-full">
-            <div class="flex justify-between bg-slate-400 py-3 px-3">
-                <span>London</span><span>20:20</span><span><i
-                        class="fa-solid fa-plane-circle-check"></i></span><span>9:00</span>
-            </div>
-        </button>
-        <button class="focus:border-4 focus:border-gray-700 w-full">
-            <div class="flex justify-between bg-slate-400 py-3 px-3">
-                <span>London</span><span>1:20</span><span><i
-                        class="fa-solid fa-plane-circle-check"></i></span><span>2:20</span>
-            </div>
-        </button>
+        </div>
     </div>
-    <div id="salut22" class="mt-20 w-[40vw] flex flex-col gap-6 justify-center">
-        <button class="focus:border-4 focus:border-gray-700 w-full">
-            <div class="flex justify-between bg-slate-400 py-3 px-3">
-                <span>Madrid</span><span>6:20</span><span><i
-                        class="fa-solid fa-plane-circle-check"></i></span><span>00:20</span>
+    <div hidden id="salut22" class="page">
+        <div
+            class="bg-slate-50 bg-opacity-50 p-[20px] rounded-[20px] mt-20 w-[40vw] flex flex-col gap-6 justify-center">
+            <button class="focus:border-4 focus:border-gray-700 focus:rounded-xl  w-full">
+                <div class="flex justify-between bg-slate-400 rounded-lg py-3 px-3">
+                    <span>Madrid</span><span>6:20</span><span><i
+                            class="fa-solid fa-plane-circle-check"></i></span><span>00:20</span>
+                </div>
+            </button>
+            <button class="focus:border-4 focus:border-gray-700 focus:rounded-xl  w-full">
+                <div class="flex justify-between bg-slate-400 rounded-lg py-3 px-3">
+                    <span>Madrid</span><span>5:20</span><span><i
+                            class="fa-solid fa-plane-circle-check"></i></span><span>7:20</span>
+                </div>
+            </button>
+            <button class="focus:border-4 focus:border-gray-700 focus:rounded-xl  w-full">
+                <div class="flex justify-between bg-slate-400 rounded-lg py-3 px-3">
+                    <span>Madrid</span><span>20:20</span><span><i
+                            class="fa-solid fa-plane-circle-check"></i></span><span>1:20</span>
+                </div>
+            </button>
+            <button class="focus:border-4 focus:border-gray-700 focus:rounded-xl  w-full">
+                <div class="flex justify-between bg-slate-400 rounded-lg py-3 px-3">
+                    <span>Madrid</span><span>00:20</span><span><i
+                            class="fa-solid fa-plane-circle-check"></i></span><span>9:00</span>
+                </div>
+            </button>
+            <div class="flex justify-between">
+                <button type="button" onclick="previousStep(2)"
+                    class="bg-slate-500 hover:bg-slate-900 text-white px-4 py-2 rounded-xl">Previous</button>
+                <button type="button" onclick="nextStep(3)"
+                    class="bg-slate-500 hover:bg-slate-900 text-white px-8 py-2 rounded-xl">Next</button>
             </div>
-        </button>
-        <button class="focus:border-4 focus:border-gray-700 w-full">
-            <div class="flex justify-between bg-slate-400 py-3 px-3">
-                <span>Madrid</span><span>5:20</span><span><i
-                        class="fa-solid fa-plane-circle-check"></i></span><span>7:20</span>
-            </div>
-        </button>
-        <button class="focus:border-4 focus:border-gray-700 w-full">
-            <div class="flex justify-between bg-slate-400 py-3 px-3">
-                <span>Madrid</span><span>20:20</span><span><i
-                        class="fa-solid fa-plane-circle-check"></i></span><span>1:20</span>
-            </div>
-        </button>
-        <button class="focus:border-4 focus:border-gray-700 w-full">
-            <div class="flex justify-between bg-slate-400 py-3 px-3">
-                <span>Madrid</span><span>00:20</span><span><i
-                        class="fa-solid fa-plane-circle-check"></i></span><span>9:00</span>
-            </div>
-        </button>
+        </div>
     </div>
 
     <!-- voyageur -->
-    <div id="salut3" class="grid grid-cols-3 place-items-center bg-slate-50 rounded-xl mt-20">
-        <h1 class=" col-span-3 text-2xl mb-10">Voyageur</h1>
-        <div>
-            <div class="py-2 px-3 w-full max-w-xs border border-gray-200 rounded-lg shadow">
-                <div class="w-full flex justify-between items-center gap-x-3">
-                    <div>
-                        <span class="block text-s text-gray-500">Adult (300 dh)</span>
-                        <input
-                            class="p-1 w-16 border border-gray-200 rounded-md text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-center"
-                            type="number" min="1" max="10" step="1" value="1" />
-                    </div>
-                </div>
+    <div id="salut3" class="page">
+        <div class="grid grid-cols-3 mt-10 place-items-center bg-slate-50 rounded-xl" style="--tw-bg-opacity: .5;">
+            <h1 class=" col-span-3 text-2xl mb-10">Voyageur</h1>
+            <div data-hs-input-number>
+                <p id="Adult">Adult :       </p>
+                <button type="button" class="" tabindex="-1" aria-label="Decrease" id="decrement">
+                    <i class="fa-solid fa-user-minus"></i>
+                </button>
+                <input type="text" aria-roledescription="Number field" value="0" id="numberInput" class="w-7 text-center rounded-full bg-slate-50 bg-opacity-50">
+                <button type="button" class="" tabindex="-1" aria-label="Increase" id="increment">
+                    <i class="fa-solid fa-user-plus"></i>
+                </button>
             </div>
-        </div>
-        <i class="fa-solid fa-grip-lines-vertical self-center "></i>
-        <div>
-            <div class="py-2 px-3 w-full max-w-xs border border-gray-200 rounded-lg shadow">
-                <div class="w-full flex justify-between items-center gap-x-3">
-                    <div>
-                        <span class="block text-s text-gray-500">Enfant (150 dh)</span>
-                        <input
-                            class="p-1 w-16 border border-gray-200 rounded-md text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-center"
-                            type="number" min="1" max="10" step="1" value="1" />
-                    </div>
-                </div>
+            <i class="fa-solid fa-grip-lines-vertical self-center "></i>
+            <div data-hs-input-number>
+                <p id="Enfant">Enfant :      </p>
+                <button type="button" class="" tabindex="-1" aria-label="Decrease" id="decrementa">
+                    <i class="fa-solid fa-user-minus"></i>
+                </button>
+                <input type="text" aria-roledescription="Number field" value="0" id="numberInputa" class="w-7 text-center rounded-full bg-slate-50 bg-opacity-50">
+                <button type="button" class="" tabindex="-1" aria-label="Increase" id="incrementa">
+                    <i class="fa-solid fa-user-plus"></i>
+                </button>
             </div>
-        </div>
-        <div class="col-start-2 mt-10">
-            <p class="mb-5 text-center">choisir votre place</p>
-            <input type="checkbox" class="w-10 h-10">
-            <input type="checkbox" class="w-10 h-10">
-            <input type="checkbox" class="w-10 h-10">
-            <input type="checkbox" class="w-10 h-10"><br>
-            <input type="checkbox" class="w-10 h-10">
-            <input type="checkbox" class="w-10 h-10">
-            <input type="checkbox" class="w-10 h-10">
-            <input type="checkbox" class="w-10 h-10">
-        </div>
-        <div class="col-start-2 row-start-4">
-            <p >Prix Total : <span id="pt"></span></p>
+            <div class="col-start-2 mt-10">
+                <p class="mb-5 text-center">choisir votre place</p>
+                <input type="checkbox" onclick="check()" class="che w-10 h-10">
+                <input type="checkbox" onclick="check()" class="che w-10 h-10">
+                <input type="checkbox" onclick="check()" class="che w-10 h-10">
+                <input type="checkbox" onclick="check()" class="che w-10 h-10"><br>
+                <input type="checkbox" onclick="check()" class="che w-10 h-10">
+                <input type="checkbox" onclick="check()" class="che w-10 h-10">
+                <input type="checkbox" onclick="check()" class="che w-10 h-10">
+                <input type="checkbox" onclick="check()" class="che w-10 h-10">
+            </div>
+            <div class="col-start-2 row-start-4">
+                <p>Prix Total : <span id="pt"></span></p>
+            </div>
+
+            <button type="button" onclick="previousStep(2)"
+                class="bg-slate-500 hover:bg-slate-900 text-white px-4 py-2 rounded-xl my-5 row-start-5 col-start-1">Previous</button>
+            <button type="button" onclick="nextStep(2)"
+                class="bg-slate-500 hover:bg-slate-900 text-white px-8 py-2 rounded-xl my-5 row-start-5 col-start-3">Next</button>
         </div>
     </div>
 
-    <button onclick="next1()" class="block bg-blue-600 px-6 py-2 mt-10 rounded-lg text-lg text-white hover:bg-blue-700">
-        Next
-    </button>
     <script src="script.js"></script>
 </body>
 
