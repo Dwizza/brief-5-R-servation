@@ -5,7 +5,7 @@ function nextStep(step) {
     });
     const currentStep = document.getElementById(`salut${step}`);
     if (currentStep) {
-        currentStep.style.display = 'block';
+        currentStep.style.display = 'grid';
         
         
         let li = "li" + step;
@@ -155,7 +155,7 @@ incrementButton.addEventListener("click", () => {
 });
 decrementButton.addEventListener("click", () => {
     let currentValue = parseInt(numberInput.value, 10);
-    if (currentValue > 0) { 
+    if ( currentValue > 0) { 
         numberInput.value = currentValue - 1;
         prixAdult = currentValue * 500;
         // decriment prix total
@@ -174,14 +174,14 @@ const decrementButtona = document.getElementById("decrementa");
 let currentValuea
 let prixEnfant = 0
 incrementButtona.addEventListener("click", () => {
-    currentValuea = parseInt(numberInputa.value, 10);
-    prixEnfant = (currentValuea+1) * 100;
-    numberInputa.value = currentValuea + 1;
+    currentValuea = parseInt(numberInputa.value, 10)
+    prixEnfant = (currentValuea+1) * 100
+    numberInputa.value = currentValuea + 1
     // prix total 
-    pt = pt + 100;
-    prixTotal.innerHTML = pt + "dh";
+    pt = pt + 100
+    prixTotal.innerHTML = pt + "dh"
     // prix enfant
-    document.getElementById("Enfant").innerHTML = "Enfant : " + prixEnfant + "dh" ;
+    document.getElementById("Enfant").innerHTML = "Enfant : " + prixEnfant + "dh" 
     inable()
     place++
 
@@ -211,7 +211,7 @@ function check() {
     
     if(place <= count){
         document.querySelectorAll('.che').forEach(element => {
-            element.setAttribute('disabled', true) 
+        element.setAttribute('disabled', true) 
         });
     }
     count++
@@ -219,15 +219,169 @@ function check() {
 function inable() {
     if(place > count-2){
         document.querySelectorAll('.che').forEach(element => {
-            element.removeAttribute('disabled', false)
+        element.removeAttribute('disabled', false)
         });
     }
 }
 function uncheck() {
-    
         document.querySelectorAll('.che').forEach(element => {
-            element.removeAttribute('disabled', false)
-            element.checked = false
+        element.removeAttribute('disabled', false)
+        element.checked = false
         });
+    
+}
+function ticket(){
+    for(let i=0; i< numberInput.value ; i++){
+        document.getElementById("salut4").innerHTML += `
+        <div class="max-w-md w-[300px] row-auto  mx-auto z-10 bg-[#bc6c25] rounded-3xl">
+            <div class="flex flex-col">
+                <div class="bg-white relative drop-shadow-2xl  rounded-3xl p-4 m-4">
+                    <div class="flex-none sm:flex">
+                        <div class=" relative h-32 w-32   sm:mb-0 mb-3 hidden">
+                            <a href="#"
+                                class="absolute -right-2 bottom-2  ml-3  text-white p-1 text-xs bg-green-400 hover:bg-green-500 font-medium tracking-wider rounded-full transition ease-in duration-300">
+                            </a>
+                        </div>
+                        <div class="flex-auto justify-evenly">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center  my-1">
+                                    <span class="mr-3 rounded-full bg-white w-8 h-8">
+                                        <img src="https://image.winudf.com/v2/image1/Y29tLmJldHMuYWlyaW5kaWEudWlfaWNvbl8xNTU0NTM4MzcxXzA0Mw/icon.png?w=&amp;fakeurl=1"
+                                            class="h-8 p-1">
+                                    </span>
+                                    <h2 class="font-medium">Adult</h2>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-around">
+                                <div class="flex flex-col">
+                                    <div class="w-full flex-none text-lg text-blue-800 font-bold leading-none">${depart.value}
+                                    </div>
+                                </div>
+                                <div class="flex flex-col mx-auto">
+                                    <img src="https://image.winudf.com/v2/image1/Y29tLmJldHMuYWlyaW5kaWEudWlfaWNvbl8xNTU0NTM4MzcxXzA0Mw/icon.png?w=&amp;fakeurl=1"
+                                        class="w-20 p-1">
+                                </div>
+                                <div class=" ">
+                                    <div class="w-full flex-none text-lg text-blue-800 font-bold leading-none">${arriver.value}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border-dashed border-b-2 my-5 pt-5">
+                                <div class="absolute rounded-full w-5 h-5 bg-[#bc6c25] -mt-2 -left-2"></div>
+                                <div class="absolute rounded-full w-5  h-5 bg-[#bc6c25] -mt-2 -right-2"></div>
+                               
+                            </div> 
+                            <div class="absolute rounded-full w-full h-5  -mt-2 -right-2 text-center">${date.value}<div>500Dh</div></div>
+                            <div class=" border-dashed border-b-2 my-5 pt-5">
+                                <div class="absolute rounded-full w-5 h-5 bg-[#bc6c25] -mt-2 -left-2"></div>
+                                <div class="absolute rounded-full w-5 h-5 bg-[#bc6c25] -mt-2 -right-2"></div>
+                            </div>
+                            <div class="flex items-center mb-4 px-5">
+                                <div class="flex flex-col text-sm">
+                                    <span class="">Board</span>
+                                    <div class="font-semibold">11:50AM</div>
+                                </div>
+                                <div class="flex flex-col mx-auto text-sm">
+                                    <span class="">Departs</span>
+                                    <div class="font-semibold">11:30Am</div>
+                                </div>
+                                <div class="flex flex-col text-sm">
+                                    <span class="">Arrived</span>
+                                    <div class="font-semibold">2:00PM</div>
+                                </div>
+                            </div>
+                            <div class=" border-dashed border-b-2 my-5 pt-5">
+                                <div class="absolute rounded-full w-5 h-5 bg-[#bc6c25] -mt-2 -left-2"></div>
+                                <div class="absolute rounded-full w-5 h-5 bg-[#bc6c25] -mt-2 -right-2"></div>
+                            </div>
+                            <div class="flex flex-col  justify-center text-sm ">
+                                <h6 class="font-bold text-center">Boarding Pass</h6>
+                                <div class="flex justify-center  mt-4 ">
+                                    <img src="../images/rb_2915.png" alt="" class="h-48">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`
+    }
+    console.log("numberInput", numberInput.value);
+    
+    for(let i=0; i< numberInputa.value ; i++){
+        document.getElementById("salut4").innerHTML += `
+        <div class="max-w-md w-[300px]  mx-auto z-10 bg-[#606c38] rounded-3xl">
+            <div class="flex flex-col">
+                <div class="bg-white relative drop-shadow-2xl  rounded-3xl p-4 m-4">
+                    <div class="flex-none sm:flex">
+                        <div class=" relative h-32 w-32   sm:mb-0 mb-3 hidden">
+                            <a href="#"
+                                class="absolute -right-2 bottom-2  ml-3  text-white p-1 text-xs bg-green-400 hover:bg-green-500 font-medium tracking-wider rounded-full transition ease-in duration-300">
+                            </a>
+                        </div>
+                        <div class="flex-auto justify-evenly">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center  my-1">
+                                    <span class="mr-3 rounded-full bg-white w-8 h-8">
+                                        <img src="https://image.winudf.com/v2/image1/Y29tLmJldHMuYWlyaW5kaWEudWlfaWNvbl8xNTU0NTM4MzcxXzA0Mw/icon.png?w=&amp;fakeurl=1"
+                                            class="h-8 p-1">
+                                    </span>
+                                    <h2 class="font-medium">Enfant</h2>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-around">
+                                <div class="flex flex-col">
+                                    <div class="w-full flex-none text-lg text-blue-800 font-bold leading-none">${depart.value}
+                                    </div>
+                                </div>
+                                <div class="flex flex-col mx-auto">
+                                    <img src="https://image.winudf.com/v2/image1/Y29tLmJldHMuYWlyaW5kaWEudWlfaWNvbl8xNTU0NTM4MzcxXzA0Mw/icon.png?w=&amp;fakeurl=1"
+                                        class="w-20 p-1">
+                                </div>
+                                <div class=" ">
+                                    <div class="w-full flex-none text-lg text-blue-800 font-bold leading-none">${arriver.value}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" border-dashed border-b-2 my-5 pt-5">
+                                <div class="absolute rounded-full w-5 h-5 bg-[#606c38] -mt-2 -left-2"></div>
+                                <div class="absolute rounded-full w-5 h-5 bg-[#606c38] -mt-2 -right-2"></div>
+                            </div>
+                            <div class="absolute rounded-full w-full h-5  -mt-2 -right-2 text-center">${date.value}<div>100Dh</div></div>
+                            <div class=" border-dashed border-b-2 my-5 pt-5">
+                                <div class="absolute rounded-full w-5 h-5 bg-[#606c38] -mt-2 -left-2"></div>
+                                <div class="absolute rounded-full w-5 h-5 bg-[#606c38] -mt-2 -right-2"></div>
+                            </div>
+                            <div class="flex items-center mb-4 px-5">
+                                <div class="flex flex-col text-sm">
+                                    <span class="">Board</span>
+                                    <div class="font-semibold">11:50AM</div>
+                                </div>
+                                <div class="flex flex-col mx-auto text-sm">
+                                    <span class="">Departs</span>
+                                    <div class="font-semibold">11:30Am</div>
+                                </div>
+                                <div class="flex flex-col text-sm">
+                                    <span class="">Arrived</span>
+                                    <div class="font-semibold">2:00PM</div>
+                                </div>
+                            </div>
+                            <div class=" border-dashed border-b-2 my-5 pt-5">
+                                <div class="absolute rounded-full w-5 h-5 bg-[#606c38] -mt-2 -left-2"></div>
+                                <div class="absolute rounded-full w-5 h-5 bg-[#606c38] -mt-2 -right-2"></div>
+                            </div>
+                            <div class="flex flex-col  justify-center text-sm ">
+                                <h6 class="font-bold text-center">Boarding Pass</h6>
+                                <div class="flex justify-center  mt-4 ">
+                                    <img src="../images/rb_2915.png" alt="" class="h-48">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`
+    }
+    console.log("numberInputa", numberInputa.value);
     
 }
