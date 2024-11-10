@@ -1,3 +1,4 @@
+// import jsPDF from "jspdf";
 function nextStep(step) {
     const steps = document.querySelectorAll('.page');
     steps.forEach((s) => {
@@ -10,13 +11,13 @@ function nextStep(step) {
         
         let li = "li" + step;
     document.getElementById(li).innerHTML = `<li
-    class="flex w-full items-center text-blue-600 dark:text-blue-500 after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-100 after:border-4 after:inline-block dark:after:border-gray-700"
+    class="flex w-full items-center text-[#bc6c25] dark:text-[#bc6c25] after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-100 after:border-4 after:inline-block dark:after:border-gray-700"
     >
         <span
-        class="flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full lg:h-12 lg:w-12 dark:bg-blue-800 shrink-0"
+        class="flex items-center justify-center w-10 h-10 bg-[#bc6c25] rounded-full lg:h-12 lg:w-12 dark:bg-[#bc6c25] shrink-0"
         >
         <svg
-            class="w-3.5 h-3.5 text-blue-600 lg:w-4 lg:h-4 dark:text-blue-300"
+            class="w-3.5 h-3.5 text-blue-600 lg:w-4 lg:h-4 dark:text-[#fefae0]"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -37,13 +38,13 @@ function nextStep(step) {
         document.getElementById("salut20").style.display = "block";
         let li = "li" + step;
     document.getElementById(li).innerHTML = `<li
-    class="flex w-full items-center text-blue-600 dark:text-blue-500 after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-100 after:border-4 after:inline-block dark:after:border-gray-700"
+    class="flex w-full items-center text-[#bc6c25] dark:text-[#bc6c25] after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-100 after:border-4 after:inline-block dark:after:border-gray-700"
     >
         <span
-        class="flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full lg:h-12 lg:w-12 dark:bg-blue-800 shrink-0"
+        class="flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full lg:h-12 lg:w-12 dark:bg-[#bc6c25] shrink-0"
         >
         <svg
-            class="w-3.5 h-3.5 text-blue-600 lg:w-4 lg:h-4 dark:text-blue-300"
+            class="w-3.5 h-3.5 text-[#bc6c25] lg:w-4 lg:h-4 dark:text-[#fefae0]"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -64,13 +65,13 @@ function nextStep(step) {
         document.getElementById("salut21").style.display = "block";
         let li = "li" + step;
     document.getElementById(li).innerHTML = `<li
-    class="flex w-full items-center text-blue-600 dark:text-blue-500 after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-100 after:border-4 after:inline-block dark:after:border-gray-700"
+    class="flex w-full items-center text-[#bc6c25] dark:text-[#bc6c25] after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-100 after:border-4 after:inline-block dark:after:border-gray-700"
     >
         <span
-        class="flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full lg:h-12 lg:w-12 dark:bg-blue-800 shrink-0"
+        class="flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full lg:h-12 lg:w-12 dark:bg-[#bc6c25] shrink-0"
         >
         <svg
-            class="w-3.5 h-3.5 text-blue-600 lg:w-4 lg:h-4 dark:text-blue-300"
+            class="w-3.5 h-3.5 text-[#bc6c25] lg:w-4 lg:h-4 dark:text-[#fefae0]"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -91,13 +92,13 @@ function nextStep(step) {
         document.getElementById("salut22").style.display = "block";
         let li = "li" + step;
     document.getElementById(li).innerHTML = `<li
-    class="flex w-full items-center text-blue-600 dark:text-blue-500 after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-100 after:border-4 after:inline-block dark:after:border-gray-700"
+    class="flex w-full items-center text-[#bc6c25] dark:text-[#bc6c25] after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-100 after:border-4 after:inline-block dark:after:border-gray-700"
     >
         <span
-        class="flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full lg:h-12 lg:w-12 dark:bg-blue-800 shrink-0"
+        class="flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full lg:h-12 lg:w-12 dark:bg-[#bc6c25] shrink-0"
         >
         <svg
-            class="w-3.5 h-3.5 text-blue-600 lg:w-4 lg:h-4 dark:text-blue-300"
+            class="w-3.5 h-3.5 bg-[#bc6c25] lg:w-4 lg:h-4 dark:text-[#fefae0]"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -126,6 +127,17 @@ function previousStep(step) {
     const previousStep = document.getElementById(`salut${step - 1}`);
     if (previousStep) {
         previousStep.style.display = 'block';
+        // document.getElementById("allTicket").innerHTML = "";
+        document.getElementById("salut4").innerHTML = ` <div id="allTicket" class="col-span-3 w-full">
+        </div>
+        <div class="flex justify-between  col-span-3">
+            <button type="button" onclick="previousStep(4)"
+                class="bg-[#283618] hover:bg-slate-900 text-white px-4 py-2 rounded-xl my-5 row-start-5 col-start-1">Previous</button>
+            <button type="button" onclick="download()"
+                class="bg-[#283618] hover:bg-slate-900 text-white px-8 py-2 rounded-xl my-5 row-start-5 col-start-3">download
+                Pdf</button>
+        </div>`;
+
         
     }
 }
@@ -232,8 +244,8 @@ function uncheck() {
 }
 function ticket(){
     for(let i=0; i< numberInput.value ; i++){
-        document.getElementById("salut4").innerHTML += `
-        <div class="max-w-md w-[300px] row-auto  mx-auto z-10 bg-[#bc6c25] rounded-3xl">
+        document.getElementById("allTicket").innerHTML += `
+        <div class="max-w-md w-[300px] row-auto  mx-auto mt-10 z-10 bg-[#bc6c25] rounded-3xl">
             <div class="flex flex-col">
                 <div class="bg-white relative drop-shadow-2xl  rounded-3xl p-4 m-4">
                     <div class="flex-none sm:flex">
@@ -269,7 +281,6 @@ function ticket(){
                             <div class="border-dashed border-b-2 my-5 pt-5">
                                 <div class="absolute rounded-full w-5 h-5 bg-[#bc6c25] -mt-2 -left-2"></div>
                                 <div class="absolute rounded-full w-5  h-5 bg-[#bc6c25] -mt-2 -right-2"></div>
-                               
                             </div> 
                             <div class="absolute rounded-full w-full h-5  -mt-2 -right-2 text-center">${date.value}<div>500Dh</div></div>
                             <div class=" border-dashed border-b-2 my-5 pt-5">
@@ -306,11 +317,10 @@ function ticket(){
             </div>
         </div>`
     }
-    console.log("numberInput", numberInput.value);
     
     for(let i=0; i< numberInputa.value ; i++){
-        document.getElementById("salut4").innerHTML += `
-        <div class="max-w-md w-[300px]  mx-auto z-10 bg-[#606c38] rounded-3xl">
+        document.getElementById("allTicket").innerHTML += `
+        <div class="max-w-md w-[300px]  mx-auto mt-10 z-10 bg-[#606c38] rounded-3xl">
             <div class="flex flex-col">
                 <div class="bg-white relative drop-shadow-2xl  rounded-3xl p-4 m-4">
                     <div class="flex-none sm:flex">
@@ -382,6 +392,11 @@ function ticket(){
             </div>
         </div>`
     }
-    console.log("numberInputa", numberInputa.value);
-    
 }
+function download(){
+    const element = document.getElementById('allTicket');
+    html2pdf().from(element).save();
+    
+
+}
+

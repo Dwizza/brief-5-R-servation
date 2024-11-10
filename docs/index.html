@@ -15,6 +15,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script src="https://kit.fontawesome.com/e9ee48a8e3.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
 <body class="flex flex-col items-center mt-20 bg-[#fefae0]">
@@ -104,7 +105,7 @@
                 <option value="London">London</option>
                 <option value="Madrid">Madrid</option>
             </select>
-            <input class="w-80 bg-[#fefae0] my-2 py-2 rounded-xl px-2 text-center" id="date"  type="date" />
+            <input class="w-80 bg-[#fefae0] my-2 py-2 rounded-xl px-2 text-center" id="date" type="date" />
             <div class="flex justify-between w-80 mt-5">
                 <button type="button" onclick="previousStep(1)"
                     class="bg-[#283618] hover:bg-slate-900 text-white px-4 py-2 rounded-xl">Previous</button>
@@ -272,15 +273,19 @@
     </div>
 
     <!-- component -->
-    <div id="salut4" class="page grid grid-cols-3  w-[90vw] items-center justify-center mt-20 min-h-screen bg-center bg-cover">
+    <div id="salut4"
+        class="page grid grid-cols-3  w-[90vw] items-center justify-center mt-20 min-h-screen bg-center bg-cover">
+        <div id="allTicket" class="col-span-3 w-full">
+            
+        </div>
         <div class="flex justify-between  col-span-3">
             <button type="button" onclick="previousStep(4)"
-            class="bg-[#283618] hover:bg-slate-900 text-white px-4 py-2 rounded-xl my-5 row-start-5 col-start-1">Previous</button>
-        <button type="button" onclick="download()"
-            class="bg-[#283618] hover:bg-slate-900 text-white px-8 py-2 rounded-xl my-5 row-start-5 col-start-3">download Pdf</button>
+                class="bg-[#283618] hover:bg-slate-900 text-white px-4 py-2 rounded-xl my-5 row-start-5 col-start-1">Previous</button>
+            <button type="button" onclick="download()"
+                class="bg-[#283618] hover:bg-slate-900 text-white px-8 py-2 rounded-xl my-5 row-start-5 col-start-3">download
+                Pdf</button>
         </div>
     </div>
-
 
     <script src="script.js"></script>
 </body>

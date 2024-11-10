@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+/** @type {import { jsPDF } from "jspdf"} */
 module.exports = {
   content: ["./docs/**/*.{html,js}"],
   theme: {
