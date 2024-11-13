@@ -15,7 +15,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script src="https://kit.fontawesome.com/e9ee48a8e3.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
 </head>
 
 <body class="flex flex-col items-center mt-20 bg-[#fefae0]">
@@ -79,7 +79,7 @@
 
     <!-- commencer la reservation  -->
 
-    <div id="salut0" class="page mt-20 w-[40vw] p-5 bg-[#bc6c25] bg-opacity-50 rounded-3xl text-center">
+    <div id="salut0" class="page mt-20 w-[40vw] p-5 bg-[#bc6c25] bg-opacity-50 rounded-3xl text-center shadow-xl">
         <h1 class="text-4xl text-[#283618] font-kalam">Commencer la reservation</h1>
         <p class="pt-10 text-2xl font-sans">Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor
             sit amet consectetur adipisicing elit. Esse, unde.</p>
@@ -89,18 +89,18 @@
 
     <!-- Station and Date Selection -->
     <div id="salut1"
-        class="page mt-20 w-[40vw] p-[20px] bg-[#bc6c25] bg-opacity-50 rounded-3xl text-center flex flex-col items-center"
+        class="page mt-20 w-[40vw] p-[20px] bg-[#bc6c25] bg-opacity-50 rounded-3xl text-center flex flex-col items-center shadow-xl"
         hidden>
-        <h1 class="text-4xl text-slate-600 font-mono mb-10">Commencer</h1>
+        <h1 class="text-4xl font-mono mb-10 text-[#283618]">Gare de depart et d'arriver</h1>
         <form class="flex flex-col items-center">
             <select id="depart" class="w-80 bg-[#fefae0] my-2 py-2 rounded-xl px-2 text-center" required>
-                <option value="">La gare de depart</option>
+                <option value="nn">La gare de depart</option>
                 <option value="Paris">Paris</option>
                 <option value="London">London</option>
                 <option value="Madrid">Madrid</option>
             </select>
             <select id="arriver" class="w-80 bg-[#fefae0] my-2 py-2 rounded-xl px-2 text-center" required>
-                <option value="">La gare d'arriver</option>
+                <option value="nn">La gare d'arriver</option>
                 <option value="Paris">Paris</option>
                 <option value="London">London</option>
                 <option value="Madrid">Madrid</option>
@@ -228,7 +228,7 @@
         <div class="grid grid-cols-3 mt-10 place-items-center bg-[#bc6c25] rounded-xl" style="--tw-bg-opacity: .5;">
             <h1 class=" col-span-3 text-2xl mb-10">Voyageur</h1>
             <div data-hs-input-number>
-                <p id="Adult">Adult : </p>
+                <p id="Adult">Adult (500DH) </p>
                 <button type="button" class="" tabindex="-1" aria-label="Decrease" id="decrement">
                     <i class="fa-solid fa-user-minus"></i>
                 </button>
@@ -240,7 +240,7 @@
             </div>
             <i class="fa-solid fa-grip-lines-vertical self-center "></i>
             <div data-hs-input-number>
-                <p id="Enfant">Enfant : </p>
+                <p id="Enfant">Enfant (100Dh) </p>
                 <button type="button" class="" tabindex="-1" aria-label="Decrease" id="decrementa">
                     <i class="fa-solid fa-user-minus"></i>
                 </button>
@@ -274,8 +274,8 @@
 
     <!-- component -->
     <div id="salut4"
-        class="page grid grid-cols-3  w-[90vw] items-center justify-center mt-20 min-h-screen bg-center bg-cover">
-        <div id="allTicket" class="col-span-3 w-full">
+        class="page  min-h-screen bg-center bg-cover mt-5">
+        <div id="allTicket" class="grid w-full gap-5">
             
         </div>
         <div class="flex justify-between  col-span-3">
@@ -288,6 +288,7 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </body>
 
 </html>

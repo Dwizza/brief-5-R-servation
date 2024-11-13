@@ -1,12 +1,25 @@
 // import jsPDF from "jspdf";
+const dateNow =  new  Date().toLocaleDateString('en-CA');
+console.log(dateNow);
+
 function nextStep(step) {
     const steps = document.querySelectorAll('.page');
+    console.log(date.value);
+    if(salut1.style.display === 'block'){
+        if (arriver.value == "nn" || depart.value == "nn" || depart.value == arriver.value || date.value <= dateNow) {
+            alert("Please fill out the arrival and departure fields.");
+            return;
+        }
+    }
+    
     steps.forEach((s) => {
         s.style.display = 'none';
     });
+    
     const currentStep = document.getElementById(`salut${step}`);
     if (currentStep) {
-        currentStep.style.display = 'grid';
+        
+        currentStep.style.display = 'block';
         
         
         let li = "li" + step;
@@ -115,6 +128,7 @@ function nextStep(step) {
         </span>
     </li>`;
     } 
+    
 }
 function previousStep(step) {
     // Hide all steps
@@ -128,7 +142,7 @@ function previousStep(step) {
     if (previousStep) {
         previousStep.style.display = 'block';
         // document.getElementById("allTicket").innerHTML = "";
-        document.getElementById("salut4").innerHTML = ` <div id="allTicket" class="col-span-3 w-full">
+        document.getElementById("salut4").innerHTML = ` <div id="allTicket" class="grid w-full gap-5">
         </div>
         <div class="flex justify-between  col-span-3">
             <button type="button" onclick="previousStep(4)"
@@ -160,8 +174,6 @@ incrementButton.addEventListener("click", () => {
     // prix total
     pt = pt + 500;
     prixTotal.innerHTML = pt + "dh";
-    // prix adult 
-    document.getElementById("Adult").innerHTML = "Adult : " + prixAdult + "dh" ;
     inable()
     place++
 });
@@ -173,8 +185,6 @@ decrementButton.addEventListener("click", () => {
         // decriment prix total
         pt = pt - 500;
         prixTotal.innerHTML = pt + "dh";
-        // decriment prix adult
-        document.getElementById("Adult").innerHTML = "Adult : " + (prixAdult - 500 ) + "dh" ;
         uncheck()
     } 
     place--
@@ -192,8 +202,6 @@ incrementButtona.addEventListener("click", () => {
     // prix total 
     pt = pt + 100
     prixTotal.innerHTML = pt + "dh"
-    // prix enfant
-    document.getElementById("Enfant").innerHTML = "Enfant : " + prixEnfant + "dh" 
     inable()
     place++
 
@@ -208,8 +216,6 @@ decrementButtona.addEventListener("click", () => {
         //  decriment prix total 
         pt = pt - 100;
         prixTotal.innerHTML = pt + "dh" ;
-        //  decriment prix enfant
-        document.getElementById("Enfant").innerHTML = "Enfant : " + (prixEnfant - 100 ) + "dh" ;
         uncheck()
     }
     place--
@@ -245,158 +251,108 @@ function uncheck() {
 function ticket(){
     for(let i=0; i< numberInput.value ; i++){
         document.getElementById("allTicket").innerHTML += `
-        <div class="max-w-md w-[300px] row-auto  mx-auto mt-10 z-10 bg-[#bc6c25] rounded-3xl">
-            <div class="flex flex-col">
-                <div class="bg-white relative drop-shadow-2xl  rounded-3xl p-4 m-4">
-                    <div class="flex-none sm:flex">
-                        <div class=" relative h-32 w-32   sm:mb-0 mb-3 hidden">
-                            <a href="#"
-                                class="absolute -right-2 bottom-2  ml-3  text-white p-1 text-xs bg-green-400 hover:bg-green-500 font-medium tracking-wider rounded-full transition ease-in duration-300">
-                            </a>
-                        </div>
-                        <div class="flex-auto justify-evenly">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center  my-1">
-                                    <span class="mr-3 rounded-full bg-white w-8 h-8">
-                                        <img src="https://image.winudf.com/v2/image1/Y29tLmJldHMuYWlyaW5kaWEudWlfaWNvbl8xNTU0NTM4MzcxXzA0Mw/icon.png?w=&amp;fakeurl=1"
-                                            class="h-8 p-1">
-                                    </span>
-                                    <h2 class="font-medium">Adult</h2>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-around">
-                                <div class="flex flex-col">
-                                    <div class="w-full flex-none text-lg text-blue-800 font-bold leading-none">${depart.value}
-                                    </div>
-                                </div>
-                                <div class="flex flex-col mx-auto">
-                                    <img src="https://image.winudf.com/v2/image1/Y29tLmJldHMuYWlyaW5kaWEudWlfaWNvbl8xNTU0NTM4MzcxXzA0Mw/icon.png?w=&amp;fakeurl=1"
-                                        class="w-20 p-1">
-                                </div>
-                                <div class=" ">
-                                    <div class="w-full flex-none text-lg text-blue-800 font-bold leading-none">${arriver.value}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="border-dashed border-b-2 my-5 pt-5">
-                                <div class="absolute rounded-full w-5 h-5 bg-[#bc6c25] -mt-2 -left-2"></div>
-                                <div class="absolute rounded-full w-5  h-5 bg-[#bc6c25] -mt-2 -right-2"></div>
-                            </div> 
-                            <div class="absolute rounded-full w-full h-5  -mt-2 -right-2 text-center">${date.value}<div>500Dh</div></div>
-                            <div class=" border-dashed border-b-2 my-5 pt-5">
-                                <div class="absolute rounded-full w-5 h-5 bg-[#bc6c25] -mt-2 -left-2"></div>
-                                <div class="absolute rounded-full w-5 h-5 bg-[#bc6c25] -mt-2 -right-2"></div>
-                            </div>
-                            <div class="flex items-center mb-4 px-5">
-                                <div class="flex flex-col text-sm">
-                                    <span class="">Board</span>
-                                    <div class="font-semibold">11:50AM</div>
-                                </div>
-                                <div class="flex flex-col mx-auto text-sm">
-                                    <span class="">Departs</span>
-                                    <div class="font-semibold">11:30Am</div>
-                                </div>
-                                <div class="flex flex-col text-sm">
-                                    <span class="">Arrived</span>
-                                    <div class="font-semibold">2:00PM</div>
-                                </div>
-                            </div>
-                            <div class=" border-dashed border-b-2 my-5 pt-5">
-                                <div class="absolute rounded-full w-5 h-5 bg-[#bc6c25] -mt-2 -left-2"></div>
-                                <div class="absolute rounded-full w-5 h-5 bg-[#bc6c25] -mt-2 -right-2"></div>
-                            </div>
-                            <div class="flex flex-col  justify-center text-sm ">
-                                <h6 class="font-bold text-center">Boarding Pass</h6>
-                                <div class="flex justify-center  mt-4 ">
-                                    <img src="../images/rb_2915.png" alt="" class="h-48">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>`
+        <div id="ticketA${i}" class="grid grid-cols-4 text-center h-[300px] w-[60vw]">
+        <div class="grid grid-cols-4 text-center col-span-3 h-[300px] border rounded-lg bg-[#DDB383] ">
+            <h2 class="text-[#FEFAE0] col-span-4 text-2xl rounded-tl-lg rounded-tr-lg" >AIR TICKET</h2>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${depart.value + " to " + arriver.value + " " + date.value + " prix total " + pt}" class="row-span-3 row-start-3">
+            <span class="p-5 text-3xl text-[#FEFAE0]">${depart.value}</span>
+            <i class="fa-solid fa-plane-departure p-5 text-3xl col-span-2"></i>
+            <span class="p-5 text-3xl text-[#FEFAE0] ">${arriver.value}</span>
+            <div class="border-t-2 col-span-3 justify-center"></div>
+            <span class=" border-b-2">Date</span>
+            <span class=" border-b-2">Prix</span>
+            <span class="row-span-2 ">Adult</span>
+            <span class="p-5">${date.value}</span>
+            <span class="p-5">500 Dh</span>
+        </div>
+        <div class="grid grid-cols-3 text-center h-[300px] border rounded-lg">
+            <h2 class="text-[#FEFAE0] bg-[#DDB383] rounded-tl-lg rounded-tr-lg col-span-3 " >BOARDING PASS</h2>
+            <span class=" text-xl text-[#DDB383]">${depart.value}</span>
+            <i class="fa-solid fa-plane-departure  text-xl"></i>
+            <span class=" text-xl text-[#DDB383] ">${arriver.value}</span>
+            <div class="border-t-2  col-span-3 w-[90%]"></div>
+            <span class="">Date</span>
+            <span class=" col-span-2">${date.value}</span>
+            <span class="">Prix</span>
+            <span class=" col-span-2">500 Dh</span>
+            <span class=" col-span-3">Adult</span>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${depart.value + " to " + arriver.value + " " + date.value + " prix total " + pt}" alt="" class="col-start-2">
+        </div>
+    </div>`
     }
     
     for(let i=0; i< numberInputa.value ; i++){
         document.getElementById("allTicket").innerHTML += `
-        <div class="max-w-md w-[300px]  mx-auto mt-10 z-10 bg-[#606c38] rounded-3xl">
-            <div class="flex flex-col">
-                <div class="bg-white relative drop-shadow-2xl  rounded-3xl p-4 m-4">
-                    <div class="flex-none sm:flex">
-                        <div class=" relative h-32 w-32   sm:mb-0 mb-3 hidden">
-                            <a href="#"
-                                class="absolute -right-2 bottom-2  ml-3  text-white p-1 text-xs bg-green-400 hover:bg-green-500 font-medium tracking-wider rounded-full transition ease-in duration-300">
-                            </a>
-                        </div>
-                        <div class="flex-auto justify-evenly">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center  my-1">
-                                    <span class="mr-3 rounded-full bg-white w-8 h-8">
-                                        <img src="https://image.winudf.com/v2/image1/Y29tLmJldHMuYWlyaW5kaWEudWlfaWNvbl8xNTU0NTM4MzcxXzA0Mw/icon.png?w=&amp;fakeurl=1"
-                                            class="h-8 p-1">
-                                    </span>
-                                    <h2 class="font-medium">Enfant</h2>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-around">
-                                <div class="flex flex-col">
-                                    <div class="w-full flex-none text-lg text-blue-800 font-bold leading-none">${depart.value}
-                                    </div>
-                                </div>
-                                <div class="flex flex-col mx-auto">
-                                    <img src="https://image.winudf.com/v2/image1/Y29tLmJldHMuYWlyaW5kaWEudWlfaWNvbl8xNTU0NTM4MzcxXzA0Mw/icon.png?w=&amp;fakeurl=1"
-                                        class="w-20 p-1">
-                                </div>
-                                <div class=" ">
-                                    <div class="w-full flex-none text-lg text-blue-800 font-bold leading-none">${arriver.value}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class=" border-dashed border-b-2 my-5 pt-5">
-                                <div class="absolute rounded-full w-5 h-5 bg-[#606c38] -mt-2 -left-2"></div>
-                                <div class="absolute rounded-full w-5 h-5 bg-[#606c38] -mt-2 -right-2"></div>
-                            </div>
-                            <div class="absolute rounded-full w-full h-5  -mt-2 -right-2 text-center">${date.value}<div>100Dh</div></div>
-                            <div class=" border-dashed border-b-2 my-5 pt-5">
-                                <div class="absolute rounded-full w-5 h-5 bg-[#606c38] -mt-2 -left-2"></div>
-                                <div class="absolute rounded-full w-5 h-5 bg-[#606c38] -mt-2 -right-2"></div>
-                            </div>
-                            <div class="flex items-center mb-4 px-5">
-                                <div class="flex flex-col text-sm">
-                                    <span class="">Board</span>
-                                    <div class="font-semibold">11:50AM</div>
-                                </div>
-                                <div class="flex flex-col mx-auto text-sm">
-                                    <span class="">Departs</span>
-                                    <div class="font-semibold">11:30Am</div>
-                                </div>
-                                <div class="flex flex-col text-sm">
-                                    <span class="">Arrived</span>
-                                    <div class="font-semibold">2:00PM</div>
-                                </div>
-                            </div>
-                            <div class=" border-dashed border-b-2 my-5 pt-5">
-                                <div class="absolute rounded-full w-5 h-5 bg-[#606c38] -mt-2 -left-2"></div>
-                                <div class="absolute rounded-full w-5 h-5 bg-[#606c38] -mt-2 -right-2"></div>
-                            </div>
-                            <div class="flex flex-col  justify-center text-sm ">
-                                <h6 class="font-bold text-center">Boarding Pass</h6>
-                                <div class="flex justify-center  mt-4 ">
-                                    <img src="../images/rb_2915.png" alt="" class="h-48">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>`
+        <div id="ticketE${i}" class="grid grid-cols-4 text-center h-[300px] w-[60vw]">
+        <div class="grid grid-cols-4 text-center col-span-3 h-[300px] border rounded-lg bg-[#52a7ed] ">
+            <h2 class="text-[#FEFAE0] col-span-4 text-2xl rounded-tl-lg rounded-tr-lg" >AIR TICKET</h2>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${depart.value + " to " + arriver.value + " " + date.value + " prix total " + pt}" alt="" class="row-span-3 row-start-3">
+            <span class="p-5 text-3xl text-[#FEFAE0]">${depart.value}</span>
+            <i class="fa-solid fa-plane-departure col-span-2 p-5 text-3xl"></i>
+            <span class="p-5 text-3xl text-[#FEFAE0] ">${arriver.value}</span>
+            <div class="border-t-2 col-span-3 justify-center"></div>
+            <span class=" border-b-2">Date</span>
+            <span class=" border-b-2">Prix</span>
+            <span class="row-span-2 ">Enfant</span>
+            <span class="p-5">${date.value}</span>
+            <span class="p-5">100 Dh</span>
+        </div>
+        <div class="grid grid-cols-3 text-center h-[300px] border rounded-lg">
+            <h2 class="text-[#FEFAE0] bg-[#52a7ed] rounded-tl-lg rounded-tr-lg col-span-3 " >BOARDING PASS</h2>
+            <span class=" text-xl text-[#52a7ed]">${depart.value}</span>
+            <i class="fa-solid fa-plane-departure  text-xl"></i>
+            <span class=" text-xl text-[#52a7ed] ">${arriver.value}</span>
+            <div class="border-t-2  col-span-3 w-[90%]"></div>
+            <span class="">Date</span>
+            <span class=" col-span-2">${date.value}</span>
+            <span class="">Prix</span>
+            <span class=" col-span-2">100 Dh</span>
+            <span class=" col-span-3">Enfant</span>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${depart.value + " to " + arriver.value + " " + date.value + " prix total " + pt}" alt="" class="col-start-2">
+        </div>
+    </div>`
     }
 }
 function download(){
-    const element = document.getElementById('allTicket');
-    html2pdf().from(element).save();
+    print()
+    // for(let i=0; i< numberInputa.value ; i++){
+    // const element = document.getElementById(`ticketE${i}`);
+    // const elements = document.getElementById(`ticketA${e}`);
+    // var opt = {
+    //     margin: [0, -0.1, 0, 0],
+    //     filename: "ticket.pdf",
+    //     image: { type: "jpeg", quality: 1 },
+    //     pagebreak: { avoid: "tr", mode: "html", },
+    //     html2canvas: { scale: 4, useCORS: true, dpi: 192, letterRendering: true },
+    //     jsPDF: { unit: "in", format: "a4", orientation: "landscape" },
+    // };
     
+    // var opts = {
+    //     margin: [0, -0.1, 0, 0],
+    //     filename: "ticket.pdf",
+    //     image: { type: "jpeg", quality: 1 },
+    //     pagebreak: { avoid: "tr", mode: "html", },
+    //     html2canvas: { scale: 4, useCORS: true, dpi: 192, letterRendering: true },
+    //     jsPDF: { unit: "in", format: "a4", orientation: "landscape" },
+    // };
+            
+    // html2pdf().set(opts).from(elements).save();
+    // html2pdf().set(opt).from(element).save();
+
+// }
+    
+    // const content = document.getElementById('index0').innerHTML;
+    // const printWindow = window.open('', '', 'height=600,width=800');
+    
+    // printWindow.document.write('<html><head><title>Print</title>');
+    // printWindow.document.write('<style>body { margin: 0; }</style>'); // Set any custom styles here
+    // printWindow.document.write('</head><body>');
+    // printWindow.document.write(content);
+    // printWindow.document.write('</body></html>');
+
+    // printWindow.document.close(); // Necessary for some browsers to finish loading
+    // printWindow.print();
+    // print()  
 
 }
 
